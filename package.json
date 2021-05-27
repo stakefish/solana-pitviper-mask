@@ -1,0 +1,64 @@
+{
+  "name": "stanley-ipkiss",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reach/slider": "0.15.0",
+    "@types/react-dnd": "3.0.2",
+    "downloadjs": "1.4.7",
+    "face-api.js": "0.22.2",
+    "html-to-image": "1.6.2",
+    "ramda": "0.27.1",
+    "react": "17.0.2",
+    "react-dnd": "14.0.2",
+    "react-dnd-html5-backend": "14.0.0",
+    "react-dom": "17.0.2",
+    "react-draggable": "4.4.3",
+    "react-dropzone": "11.3.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "5.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "format": "prettier --write src/**/*",
+    "lint": "tsc --noEmit && eslint src/**/*"
+  },
+  "pre-commit": {
+    "run": [
+      "lint",
+      "format"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/downloadjs": "1.4.2",
+    "@types/ramda": "0.27.40",
+    "@types/react": "17.0.6",
+    "@types/react-dom": "17.0.5",
+    "@types/react-dropzone": "5.1.0",
+    "@types/styled-components": "5.1.9",
+    "@typescript-eslint/eslint-plugin": "4",
+    "eslint": "7",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard-with-typescript": "20.0.0",
+    "eslint-plugin-import": "2",
+    "eslint-plugin-node": "11",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-promise": "4",
+    "pre-commit": "1.2.2",
+    "prettier": "2.3.0",
+    "typescript": "4.2.4"
+  }
+}
