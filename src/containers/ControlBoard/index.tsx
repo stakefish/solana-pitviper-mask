@@ -29,8 +29,6 @@ const ControlBoard: React.FC = () => {
   const size = scales?.[active] ?? CONTROLLER_SCALE_DEFAULT
   const angle = angles?.[active] ?? CONTROLLER_ROTATION_DEFAULT
 
-  console.log(scale)
-
   return (
     <S.Wrapper>
       {!scales?.[active] ? (
