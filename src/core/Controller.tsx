@@ -4,10 +4,10 @@ import { update } from "ramda"
 import { toPng } from "html-to-image"
 import { IPoint } from "face-api.js"
 
-import { ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT } from "../helpers/const"
+import { ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT, FACE_DEFAULT } from "../helpers/const"
 
 interface ContextType {
-  file?: string
+  file: string
   masks?: string[]
   angles: number[]
   scales: number[]
@@ -35,7 +35,7 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
   const faceRef = useRef<HTMLImageElement>(null)
   const artboardRef = useRef<HTMLDivElement>(null)
 
-  const [file, setFile] = useState<string | undefined>()
+  const [file, setFile] = useState<string>(FACE_DEFAULT)
   const [active, setActive] = useState<number>(ACTIVE_MASK_DEFAULT)
 
   const [masks, setMasks] = useState<string[]>([])

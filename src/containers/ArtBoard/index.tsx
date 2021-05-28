@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react"
 import Draggable from "react-draggable"
 import { IPoint } from "face-api.js"
 
-import { MASK, MASK_WIDTH, MASK_HEIGHT, SCALE_FACTOR } from "../../helpers/const"
+import { MASK, MASK_WIDTH, MASK_HEIGHT, SCALE_FACTOR, FACE_DEFAULT } from "../../helpers/const"
 
 import { useController } from "../../helpers/hooks"
 import { detectFaceLandmarks } from "../../helpers/utils"
@@ -28,7 +28,9 @@ const ArtBoard: React.FC = () => {
   }
 
   useEffect(() => {
-    detect()
+    if (file && file !== FACE_DEFAULT) {
+      detect()
+    }
   }, [file, faceRef])
 
   return (
@@ -53,6 +55,14 @@ const ArtBoard: React.FC = () => {
           </Box>
         </Draggable>
       ))}
+
+      {file === FACE_DEFAULT ? (
+        <Draggable handle="img" positionOffset={positionOffset} onStop={(_, point) => move(point as IPoint)}>
+          <Box>
+            <Image width={width} height={height} src={MASK} $default />
+          </Box>
+        </Draggable>
+      ) : null}
 
       {file ? <Cover src={file} ref={faceRef} /> : null}
     </Board>
