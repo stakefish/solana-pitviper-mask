@@ -16,6 +16,11 @@ import {
 
 import { useController } from "../../helpers/hooks"
 
+import { IconPhoto } from "../../icons"
+import Button, { ButtonColor, ButtonSize } from "../../components/Button"
+
+import * as S from "./styled"
+
 const ControlBoard: React.FC = () => {
   const { angles, scales, active, rotate, scale, save, drop } = useController()
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ accept: "image/*", onDrop: drop })
@@ -24,13 +29,15 @@ const ControlBoard: React.FC = () => {
   const angle = angles?.[active] ?? CONTROLLER_ROTATION_DEFAULT
 
   return (
-    <>
-      <button onClick={save}>Download</button>
-
-      <div {...getRootProps()}>
+    <S.Wrapper>
+      <S.UploadWrapper {...getRootProps()}>
+        <Button $color={ButtonColor.Red} $size={ButtonSize.Lg} onClick={save}>
+          <IconPhoto />
+          Pick Photo
+        </Button>
         <input {...getInputProps()} />
-        {isDragActive ? <p>Drop the files here ...</p> : <p>Drag 'n' drop some files here, or click to select files</p>}
-      </div>
+      </S.UploadWrapper>
+      {isDragActive ? <p>Drop the files here ...</p> : <p>Drag 'n' drop some files here, or click to select files</p>}
 
       <i>Angle: {angle}</i>
 
@@ -57,7 +64,7 @@ const ControlBoard: React.FC = () => {
           <SliderMarker value={size} />
         </SliderTrack>
       </SliderInput>
-    </>
+    </S.Wrapper>
   )
 }
 
