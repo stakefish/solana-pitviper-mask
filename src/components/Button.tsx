@@ -9,10 +9,7 @@ export enum ButtonSize {
 }
 
 export enum ButtonColor {
-  White,
-  Gray,
   Primary,
-  Black,
   Bordered,
   Transparent
 }
@@ -58,49 +55,16 @@ const Button = styled.button<ButtonProps>`
   }
 
   ${(props) =>
-    props.$color === ButtonColor.White &&
-    css`
-      background-color: ${(props) => props.theme.colors.white};
-      color: ${(props) => props.theme.colors.dark};
-
-      &:hover {
-        background-color: #e5e5e5;
-      }
-    `}
-
-  ${(props) =>
     props.$color === ButtonColor.Primary &&
     css`
       background-color: ${props.theme.colors.primary};
       color: ${props.theme.colors.white};
 
       &:hover {
-        background-color: ${props.theme.colors.primary};
+        background-color: #ff4747bf;
       }
     `}
 
-  ${(props) =>
-    props.$color === ButtonColor.Black &&
-    css`
-      background-color: ${props.theme.colors.dark};
-      color: ${props.theme.colors.white};
-
-      &:hover {
-        background-color: #353535;
-      }
-    `}
-
-  ${(props) =>
-    props.$color === ButtonColor.Gray &&
-    css`
-      background-color: #f3f3f3;
-      color: ${props.theme.colors.dark};
-
-      &:hover {
-        background-color: #e5e5e5;
-      }
-    `}
-    
   ${(props) =>
     props.$color === ButtonColor.Bordered &&
     css`
@@ -133,19 +97,6 @@ const Button = styled.button<ButtonProps>`
       svg {
         height: ${rem(30)};
         margin: ${rem(-7)} ${rem(8)} ${rem(-7)} ${rem(-15)};
-      }
-
-      @media all and (max-width: 480px) {
-        font-size: 14px;
-        padding: 11px 20px;
-
-        svg {
-          position: absolute;
-          left: 2px;
-          top: 2px;
-          height: 32px;
-          margin: 0;
-        }
       }
     `}
 

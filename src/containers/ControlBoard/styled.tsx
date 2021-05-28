@@ -73,10 +73,6 @@ export const UploadWrapper = styled.div`
 
   @media all and (max-width: 480px) {
     display: block;
-
-    ${Button} {
-      width: 100%;
-    }
   }
 `
 

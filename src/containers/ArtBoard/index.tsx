@@ -72,7 +72,7 @@ const ArtBoard: React.FC = () => {
 
       {file ? <Cover src={file} ref={faceRef} /> : null}
 
-      {file && isMobile && (
+      {file !== FACE_DEFAULT && isMobile && (
         <Upload hideHint>
           <Button $color={ButtonColor.Transparent} $size={ButtonSize.Lg}>
             <IconPhoto />

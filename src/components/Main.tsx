@@ -8,6 +8,10 @@ const Main = styled.main`
   background-position: top center;
   background-size: cover;
 
+  @media all and (max-width: 1023px) {
+    background-size: cover;
+  }
+
   @media all and (max-width: 767px) {
     padding-top: 20px;
   }

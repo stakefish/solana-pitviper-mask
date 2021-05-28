@@ -23,7 +23,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       {ready ? (
-        <Main style={{ backgroundImage: "url(images/bg_web.png)" }}>
+        <Main style={{ backgroundImage: isMobile ? "url(images/bg_mobile.png)" : "url(images/bg_web.png)" }}>
           <Section>
             <Grid as={FluidGrid} fluid>
               <Card>
