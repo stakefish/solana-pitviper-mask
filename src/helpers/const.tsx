@@ -16,6 +16,7 @@ export const CONTROLLER_SCALE_MAX = 2
 export const CONTROLLER_SCALE_STEP = 0.01
 
 export const MASK = "images/glasses.svg"
+export const FACE_DEFAULT = "images/initial.jpeg"
 
 export const MASK_WIDTH = 288
 export const MASK_HEIGHT = 130
