@@ -1,16 +1,24 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { rem } from "polished"
 
 interface ImageProps {
-  angle: number
-  scale: number
+  angle?: number
+  scale?: number
+  $default?: boolean
 }
 
 export const Image = styled.img<ImageProps>`
   cursor: move;
   display: block;
   user-drag: none;
-  transform: ${(props) => `rotate(${props.angle}deg) scale(${props.scale})`};
+  transform: ${(props) => {
+    if (props.$default) {
+      return css``
+    }
+    if (props.angle && props.scale) {
+      return `rotate(${props.angle}deg) scale(${props.scale})`
+    }
+  }};
 `
 
 export const Board = styled.div`
