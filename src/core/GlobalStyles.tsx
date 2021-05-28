@@ -69,13 +69,12 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.font.headings};
 
     @media all and (max-width: 767px) {
-      font-size: 24px;
-      margin-bottom: 6px;
+      font-size: 28px;
+      margin-bottom: 22px;
     }
 
     @media all and (min-width: 2600px) {
       font-size: ${(props) => rem(props.theme.fontSize.h1)};
-
     }
   }
 

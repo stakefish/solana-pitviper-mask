@@ -6,12 +6,15 @@ import Button from "../../components/Button"
 
 export const Wrapper = styled.div`
   text-align: center;
-  width: ${rem(645)};
+  width: ${rem(565)};
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 ${rem(40)};
   text-align: center;
-  margin-top: ${rem(10)};
+  margin-top: ${rem(30)};
+
+  @media all and (max-width: 1023px) {
+    margin-top: 0;
+  }
 `
 export const Hint = styled.div`
   margin: ${rem(14)} 0 0;
@@ -21,7 +24,7 @@ export const Hint = styled.div`
   text-align: center;
   pointer-events: none;
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 1023px) {
     display: none;
   }
 `
@@ -40,7 +43,7 @@ export const UploadWrapper = styled.div`
     min-width: ${rem(205)};
   }
 
-  @media all and (min-width: 768px) {
+  @media all and (min-width: 1024px) {
     input {
       display: block !important;
       opacity: 0;
@@ -54,9 +57,18 @@ export const UploadWrapper = styled.div`
     }
   }
 
-  @media all and (max-width: 767px) {
+  @media all and (max-width: 1023px) {
     height: auto;
     padding: 0;
+    margin-top: -27px;
+  }
+
+  @media all and (max-width: 767px) {
+    margin-top: -22px;
+
+    ${Button} {
+      padding: 16px;
+    }
   }
 
   @media all and (max-width: 480px) {
@@ -116,10 +128,12 @@ export const Card = styled.div`
 
   @media all and (max-width: 767px) {
     padding: 16px;
+    border-radius: 16px;
   }
 
   @media all and (max-width: 991px) {
-    margin-top: 32px;
+    margin-top: 16px;
+    margin-bottom: 20px;
   }
 `
 
@@ -147,12 +161,17 @@ export const SliderInfo = styled.div`
   }
 
   @media all and (max-width: 767px) {
-    font-size: 10px;
     position: relative;
     z-index: 10;
+    font-size: 13px;
+    margin-bottom: 15px;
 
     span {
       width: 30px;
+    }
+
+    h4 {
+      font-size: 13px;
     }
   }
 `
@@ -175,7 +194,7 @@ export const Inner = styled.div`
 export const Buttons = styled.div`
   margin-top: ${rem(24)};
 
-  @media all and (min-width: 992px) {
+  @media all and (min-width: 2080px) {
     > ${Row} {
       margin-left: ${rem(-24)};
       margin-right: ${rem(-24)};
@@ -188,12 +207,17 @@ export const Buttons = styled.div`
   }
 
   @media all and (max-width: 767px) {
-    margin-top: 4px;
-    margin-bottom: -20px;
+    ${Button} {
+      padding: 10px;
 
-    button,
-    a {
-      margin-bottom: 20px;
+      span {
+        display: none;
+      }
+
+      svg {
+        height: 24px;
+        margin: 0;
+      }
     }
   }
 `

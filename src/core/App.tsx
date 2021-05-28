@@ -1,5 +1,6 @@
 import React from "react"
 import { Grid, Row, Col } from "react-styled-flexboxgrid"
+import { useMediaQuery } from "react-responsive"
 
 import { useFaceAPI } from "../helpers/hooks"
 
@@ -17,6 +18,7 @@ import { FluidGrid } from "../core/GlobalStyles"
 
 const App: React.FC = () => {
   const { ready, error } = useFaceAPI()
+  const isMobile = useMediaQuery({ maxWidth: 1023 })
 
   return (
     <Layout>
@@ -26,11 +28,14 @@ const App: React.FC = () => {
             <Grid as={FluidGrid} fluid>
               <Card>
                 <Row middle="md">
-                  <Col xs={12} md={6}>
-                    <ArtBoard />
-                  </Col>
-                  <Col xs={12} md={6}>
+                  {!isMobile && (
+                    <Col xs={12} md={5}>
+                      <ArtBoard />
+                    </Col>
+                  )}
+                  <Col xs={12} md={7}>
                     <Info />
+                    {isMobile && <ArtBoard />}
                     <ControlBoard />
                   </Col>
                 </Row>

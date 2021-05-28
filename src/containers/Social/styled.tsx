@@ -21,8 +21,10 @@ export const Wrapper = styled.div`
     }
   }
 
-  @media all and (max-width: 767px) {
-    margin-bottom: 16px;
+  @media all and (max-width: 991px) {
+    margin-right: 0;
+    margin-bottom: 20px;
+    justify-content: center;
   }
 `
 

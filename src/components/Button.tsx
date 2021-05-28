@@ -13,7 +13,8 @@ export enum ButtonColor {
   Gray,
   Primary,
   Black,
-  Bordered
+  Bordered,
+  Transparent
 }
 
 export interface ButtonProps {
@@ -42,16 +43,18 @@ const Button = styled.button<ButtonProps>`
   outline: none !important;
   min-width: ${rem(60)};
   font-size: ${rem(16)};
+  white-space: nowrap;
 
   svg {
     height: ${rem(20)};
-    margin: ${rem(-7)} ${rem(12)} ${rem(-7)} ${rem(-15)};
+    margin: ${rem(-7)} ${rem(12)} ${rem(-7)} ${rem(-5)};
   }
 
-  @media all and (max-width: 480px) {
+  @media all and (max-width: 767px) {
     font-size: 12px;
     padding: 12px;
     min-width: 40px;
+    border-radius: 12px;
   }
 
   ${(props) =>
@@ -107,6 +110,17 @@ const Button = styled.button<ButtonProps>`
 
       &:hover {
         background-color: #e5e5e5;
+      }
+    `}
+
+  ${(props) =>
+    props.$color === ButtonColor.Transparent &&
+    css`
+      background-color: transparent;
+      color: ${props.theme.colors.white};
+
+      svg {
+        opacity: 0.8;
       }
     `}
 

@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { rem } from "polished"
+import { Row } from "react-styled-flexboxgrid"
 
 export const Wrapper = styled.footer`
   padding: ${rem(45)} 0 ${rem(40)};
@@ -15,8 +16,12 @@ export const Wrapper = styled.footer`
     display: none;
   }
 
-  @media all and (max-width: 480px) {
-    padding: 16px 0;
+  @media all and (max-width: 767px) {
+    padding: 30px 0;
+
+    ${Row} {
+      flex-direction: column-reverse;
+    }
   }
 `
 

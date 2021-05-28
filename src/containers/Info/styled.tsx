@@ -3,15 +3,23 @@ import { rem } from "polished"
 import { Row } from "react-styled-flexboxgrid"
 
 export const Wrapper = styled.div`
-  height: 100%;
-  width: ${rem(645)};
+  width: ${rem(565)};
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 ${rem(40)};
   text-align: center;
+  margin-bottom: ${rem(20)};
 
-  ${Row} {
+  @media all and (min-width: 1024px) {
     height: 100%;
+    margin-bottom: 0;
+
+    ${Row} {
+      height: 100%;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    margin-bottom: 24px;
   }
 
   @media all and (max-width: 280px) {
@@ -40,13 +48,16 @@ export const Links = styled.div`
   }
 
   @media all and (max-width: 767px) {
-    margin-bottom: 24px;
     padding-bottom: 0;
   }
 `
 
 export const Title = styled.h1`
   margin-bottom: ${rem(20)};
+
+  @media all and (max-width: 767px) {
+    margin-bottom: 22px;
+  }
 `
 
 export const Lead = styled.div`
@@ -56,6 +67,11 @@ export const Lead = styled.div`
   p {
     font-size: ${(props) => rem(props.theme.fontSize.lead)};
     margin-bottom: ${rem(28)};
+  }
+
+  @media all and (max-width: 767px) {
+    font-size: 13px;
+    line-height: 1.23;
   }
 
   @media all and (max-width: 480px) {
