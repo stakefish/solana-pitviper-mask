@@ -26,10 +26,10 @@ const App: React.FC = () => {
             <Grid as={FluidGrid} fluid>
               <Card>
                 <Row middle="md">
-                  <Col xs={12} md={5}>
+                  <Col xs={12} md={6}>
                     <ArtBoard />
                   </Col>
-                  <Col xs={12} md={7}>
+                  <Col xs={12} md={6}>
                     <Info />
                     <ControlBoard />
                   </Col>

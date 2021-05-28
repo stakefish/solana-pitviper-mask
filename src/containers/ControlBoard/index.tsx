@@ -24,7 +24,7 @@ import Button, { ButtonColor, ButtonSize } from "../../components/Button"
 import * as S from "./styled"
 
 const ControlBoard: React.FC = () => {
-  const { angles, scales, active, rotate, scale, save, drop } = useController()
+  const { angles, scales, active, rotate, scale, drop } = useController()
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ accept: "image/*", onDrop: drop })
 
   const size = scales?.[active] ?? CONTROLLER_SCALE_DEFAULT
@@ -34,7 +34,7 @@ const ControlBoard: React.FC = () => {
     <S.Wrapper>
       {!scales?.[active] ? (
         <S.UploadWrapper {...getRootProps()}>
-          <Button $color={ButtonColor.Primary} $size={ButtonSize.Lg} onClick={save}>
+          <Button $color={ButtonColor.Primary} $size={ButtonSize.Lg}>
             <IconPhoto />
             Pick Photo
           </Button>

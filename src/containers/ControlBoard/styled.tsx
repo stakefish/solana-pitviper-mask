@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { rem, rgba } from "polished"
+import { Row, Col } from "react-styled-flexboxgrid"
 
 import Button from "../../components/Button"
 
@@ -173,6 +174,18 @@ export const Inner = styled.div`
 
 export const Buttons = styled.div`
   margin-top: ${rem(24)};
+
+  @media all and (min-width: 992px) {
+    > ${Row} {
+      margin-left: ${rem(-24)};
+      margin-right: ${rem(-24)};
+
+      > ${Col} {
+        padding-left: ${rem(24)};
+        padding-right: ${rem(24)};
+      }
+    }
+  }
 
   @media all and (max-width: 767px) {
     margin-top: 4px;

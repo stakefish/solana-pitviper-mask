@@ -44,7 +44,7 @@ const Button = styled.button<ButtonProps>`
   font-size: ${rem(16)};
 
   svg {
-    height: ${rem(24)};
+    height: ${rem(20)};
     margin: ${rem(-7)} ${rem(12)} ${rem(-7)} ${rem(-15)};
   }
 
