@@ -4,7 +4,7 @@ import { rem } from "polished"
 export enum SvgIconSize {
   Xs,
   Md,
-  Lg,
+  Lg
 }
 
 export interface SvgIconProps {

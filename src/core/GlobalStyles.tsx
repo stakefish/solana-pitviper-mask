@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => rem(props.theme.fontSize.base)};
     font-family: ${(props) => props.theme.font.base};
     color: ${(props) => props.theme.colors.gray};
-    background: ${(props) => props.theme.colors.background} url("images/bg_web.png") no-repeat top center / cover;
+    background-color: ${(props) => props.theme.colors.background} ;
     direction: ltr;
     overscroll-behavior: none;
     -moz-osx-font-smoothing: grayscale;
@@ -48,7 +48,6 @@ export const GlobalStyles = createGlobalStyle`
 
   h1, h2, h3, h4, h5 {
     margin-top: 0;
-    font-family: ${(props) => props.theme.font.headings};
   }
 
   a {
@@ -65,11 +64,18 @@ export const GlobalStyles = createGlobalStyle`
   h1 {
     margin-bottom: ${rem(10)};
     font-size: ${(props) => rem(props.theme.fontSize.h1)};
+    font-size: 3vw;
     color:  ${(props) => props.theme.colors.primary};
+    font-family: ${(props) => props.theme.font.headings};
 
     @media all and (max-width: 767px) {
       font-size: 24px;
       margin-bottom: 6px;
+    }
+
+    @media all and (min-width: 2600px) {
+      font-size: ${(props) => rem(props.theme.fontSize.h1)};
+
     }
   }
 

@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { rem } from "polished"
-import { Row } from "react-styled-flexboxgrid"
+import { Row, Col } from "react-styled-flexboxgrid"
 
 const Card = styled.div`
   padding: ${rem(48)};
@@ -11,6 +11,18 @@ const Card = styled.div`
 
   ${Row} {
     height: 100%;
+  }
+
+  @media all and (min-width: 992px) {
+    ${Row} {
+      margin-left: ${rem(-24)};
+      margin-right: ${rem(-24)};
+    }
+
+    ${Col} {
+      padding-left: ${rem(24)};
+      padding-right: ${rem(24)};
+    }
   }
 `
 

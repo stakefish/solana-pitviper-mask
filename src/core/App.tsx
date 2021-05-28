@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       {ready ? (
-        <Main>
+        <Main style={{ backgroundImage: "url(images/bg_web.png)" }}>
           <Section>
             <Grid as={FluidGrid} fluid>
               <Card>

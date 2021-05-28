@@ -3,6 +3,7 @@ import "@reach/slider/styles.css"
 import React from "react"
 import { useDropzone } from "react-dropzone"
 import { SliderInput, SliderTrack, SliderRange, SliderHandle, SliderMarker } from "@reach/slider"
+import { Row, Col } from "react-styled-flexboxgrid"
 
 import {
   CONTROLLER_ROTATION_DEFAULT,
@@ -16,7 +17,7 @@ import {
 
 import { useController } from "../../helpers/hooks"
 
-import { IconPhoto } from "../../icons"
+import { IconPhoto, IconSize, IconAngle } from "../../icons"
 import Button, { ButtonColor, ButtonSize } from "../../components/Button"
 
 import * as S from "./styled"
@@ -28,42 +29,78 @@ const ControlBoard: React.FC = () => {
   const size = scales?.[active] ?? CONTROLLER_SCALE_DEFAULT
   const angle = angles?.[active] ?? CONTROLLER_ROTATION_DEFAULT
 
+  console.log(scale)
+
   return (
     <S.Wrapper>
-      <S.UploadWrapper {...getRootProps()}>
-        <Button $color={ButtonColor.Red} $size={ButtonSize.Lg} onClick={save}>
-          <IconPhoto />
-          Pick Photo
-        </Button>
-        <input {...getInputProps()} />
-      </S.UploadWrapper>
-      {isDragActive ? <p>Drop the files here ...</p> : <p>Drag 'n' drop some files here, or click to select files</p>}
+      {!scales?.[active] ? (
+        <S.UploadWrapper {...getRootProps()}>
+          <Button $color={ButtonColor.Red} $size={ButtonSize.Lg} onClick={save}>
+            <IconPhoto />
+            Pick Photo
+          </Button>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <S.Hint>Drop the files here ...</S.Hint>
+          ) : (
+            <S.Hint>Drag 'n' drop some files here, or click to select files</S.Hint>
+          )}
+        </S.UploadWrapper>
+      ) : (
+        <S.Card>
+          <S.Inner>
+            <Row>
+              <Col xs={12} sm={6}>
+                <S.Group>
+                  <S.SliderInfo>
+                    <h4>
+                      <IconSize /> Size
+                    </h4>
+                    {size ? <span>{(size * 100).toFixed(0)}%</span> : null}
+                  </S.SliderInfo>
 
-      <i>Angle: {angle}</i>
+                  <SliderInput
+                    value={size}
+                    min={CONTROLLER_SCALE_MIN}
+                    max={CONTROLLER_SCALE_MAX}
+                    step={CONTROLLER_SCALE_STEP}
+                    onChange={scale}
+                  >
+                    <SliderTrack>
+                      <SliderRange />
+                      <SliderHandle />
+                      <SliderMarker value={size} />
+                    </SliderTrack>
+                  </SliderInput>
+                </S.Group>
+              </Col>
+              <Col xs={12} sm={6}>
+                <S.Group>
+                  <S.SliderInfo>
+                    <h4>
+                      <IconAngle /> Angle
+                    </h4>
+                    {angle ? <span>{angle.toFixed(0)}°</span> : null}
+                  </S.SliderInfo>
 
-      <SliderInput value={angle} min={CONTROLLER_ROTATION_MIN} max={CONTROLLER_ROTATION_MAX} onChange={rotate}>
-        <SliderTrack>
-          <SliderRange />
-          <SliderHandle />
-          <SliderMarker value={angle} />
-        </SliderTrack>
-      </SliderInput>
-
-      <i>Scale: {size}</i>
-
-      <SliderInput
-        value={size}
-        min={CONTROLLER_SCALE_MIN}
-        max={CONTROLLER_SCALE_MAX}
-        step={CONTROLLER_SCALE_STEP}
-        onChange={scale}
-      >
-        <SliderTrack>
-          <SliderRange />
-          <SliderHandle />
-          <SliderMarker value={size} />
-        </SliderTrack>
-      </SliderInput>
+                  <SliderInput
+                    value={angle}
+                    min={CONTROLLER_ROTATION_MIN}
+                    max={CONTROLLER_ROTATION_MAX}
+                    onChange={rotate}
+                  >
+                    <SliderTrack>
+                      <SliderRange />
+                      <SliderHandle />
+                      <SliderMarker value={angle} />
+                    </SliderTrack>
+                  </SliderInput>
+                </S.Group>
+              </Col>
+            </Row>
+          </S.Inner>
+        </S.Card>
+      )}
     </S.Wrapper>
   )
 }

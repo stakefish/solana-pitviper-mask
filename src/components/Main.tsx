@@ -4,6 +4,9 @@ import { rem } from "polished"
 const Main = styled.main`
   min-height: 100vh;
   padding-top: ${rem(64)};
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
 
   @media all and (max-width: 580px) {
     position: relative;
