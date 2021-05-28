@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 ${rem(40)};
   text-align: center;
+  margin-top: ${rem(10)};
 `
 export const Hint = styled.div`
   margin: ${rem(14)} 0 0;
@@ -168,4 +169,18 @@ export const Inner = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+`
+
+export const Buttons = styled.div`
+  margin-top: ${rem(24)};
+
+  @media all and (max-width: 767px) {
+    margin-top: 4px;
+    margin-bottom: -20px;
+
+    button,
+    a {
+      margin-bottom: 20px;
+    }
+  }
 `

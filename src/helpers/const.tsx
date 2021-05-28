@@ -34,3 +34,6 @@ export const APP_LINKS = [
     icon: <IconInfo />
   }
 ]
+
+export const TWITTER_SHARING_URL =
+  "https://twitter.com/intent/tweet?text=It%60s%20about%20to%20get%20a%20lot%20sunnier%20in%20%23solanaSZN.%20Cruise%20through%20it%20with%20your%20shades%20😎"

@@ -9,19 +9,19 @@ const Card = styled.div`
   background-color: rgba(255, 255, 255, 0.85);
   height: 100%;
 
-  ${Row} {
+  > ${Row} {
     height: 100%;
   }
 
   @media all and (min-width: 992px) {
-    ${Row} {
+    > ${Row} {
       margin-left: ${rem(-24)};
       margin-right: ${rem(-24)};
-    }
 
-    ${Col} {
-      padding-left: ${rem(24)};
-      padding-right: ${rem(24)};
+      > ${Col} {
+        padding-left: ${rem(24)};
+        padding-right: ${rem(24)};
+      }
     }
   }
 `

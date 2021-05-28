@@ -11,21 +11,20 @@ export enum ButtonSize {
 export enum ButtonColor {
   White,
   Gray,
-  Red,
-  Black
+  Primary,
+  Black,
+  Bordered
 }
 
 export interface ButtonProps {
   $size?: ButtonSize
   $color?: ButtonColor
+  $block?: boolean
 }
 
 const Button = styled.button<ButtonProps>`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: ${rem(14)} ${rem(24)};
-  border-radius: ${rem(16)};
+  padding: ${rem(19)} ${rem(18)};
+  border-radius: ${rem(20)};
   position: relative;
   letter-spacing: 0;
   line-height: 1;
@@ -36,14 +35,23 @@ const Button = styled.button<ButtonProps>`
   text-align: center;
   font-size: ${(props) => rem(props.theme.fontSize.lead)};
   font-weight: ${(props) => props.theme.fontWeight.medium};
-  transition: background-color ${(props) => props.theme.transition.base};
+  transition: background-color ${(props) => props.theme.transition.base},
+    width ${(props) => props.theme.transition.base}, width ${(props) => props.theme.transition.base};
   appearance: none;
   cursor: pointer;
   outline: none !important;
+  min-width: ${rem(60)};
+  font-size: ${rem(16)};
+
+  svg {
+    height: ${rem(24)};
+    margin: ${rem(-7)} ${rem(12)} ${rem(-7)} ${rem(-15)};
+  }
 
   @media all and (max-width: 480px) {
-    font-size: 11px;
-    padding: 9px 12px;
+    font-size: 12px;
+    padding: 12px;
+    min-width: 40px;
   }
 
   ${(props) =>
@@ -58,7 +66,7 @@ const Button = styled.button<ButtonProps>`
     `}
 
   ${(props) =>
-    props.$color === ButtonColor.Red &&
+    props.$color === ButtonColor.Primary &&
     css`
       background-color: ${props.theme.colors.primary};
       color: ${props.theme.colors.white};
@@ -79,11 +87,23 @@ const Button = styled.button<ButtonProps>`
       }
     `}
 
-    ${(props) =>
+  ${(props) =>
     props.$color === ButtonColor.Gray &&
     css`
       background-color: #f3f3f3;
       color: ${props.theme.colors.dark};
+
+      &:hover {
+        background-color: #e5e5e5;
+      }
+    `}
+    
+  ${(props) =>
+    props.$color === ButtonColor.Bordered &&
+    css`
+      background-color: transparent;
+      color: ${props.theme.colors.gray};
+      box-shadow: inset 0 0 0 ${rem(2)} ${props.theme.colors.gray};
 
       &:hover {
         background-color: #e5e5e5;
@@ -102,8 +122,16 @@ const Button = styled.button<ButtonProps>`
       }
 
       @media all and (max-width: 480px) {
-        font-size: 8px;
-        padding: 12px 20px;
+        font-size: 14px;
+        padding: 11px 20px;
+
+        svg {
+          position: absolute;
+          left: 2px;
+          top: 2px;
+          height: 32px;
+          margin: 0;
+        }
       }
     `}
 
@@ -118,6 +146,12 @@ const Button = styled.button<ButtonProps>`
         font-size: 10px;
         padding: 9px 12px;
       }
+    `}
+
+  ${(props) =>
+    props.$block &&
+    css`
+      width: 100%;
     `}
 `
 

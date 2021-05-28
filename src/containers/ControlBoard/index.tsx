@@ -17,6 +17,7 @@ import {
 
 import { useController } from "../../helpers/hooks"
 
+import Buttons from "./buttons"
 import { IconPhoto, IconSize, IconAngle } from "../../icons"
 import Button, { ButtonColor, ButtonSize } from "../../components/Button"
 
@@ -29,13 +30,11 @@ const ControlBoard: React.FC = () => {
   const size = scales?.[active] ?? CONTROLLER_SCALE_DEFAULT
   const angle = angles?.[active] ?? CONTROLLER_ROTATION_DEFAULT
 
-  console.log(scale)
-
   return (
     <S.Wrapper>
       {!scales?.[active] ? (
         <S.UploadWrapper {...getRootProps()}>
-          <Button $color={ButtonColor.Red} $size={ButtonSize.Lg} onClick={save}>
+          <Button $color={ButtonColor.Primary} $size={ButtonSize.Lg} onClick={save}>
             <IconPhoto />
             Pick Photo
           </Button>
@@ -47,59 +46,63 @@ const ControlBoard: React.FC = () => {
           )}
         </S.UploadWrapper>
       ) : (
-        <S.Card>
-          <S.Inner>
-            <Row>
-              <Col xs={12} sm={6}>
-                <S.Group>
-                  <S.SliderInfo>
-                    <h4>
-                      <IconSize /> Size
-                    </h4>
-                    {size ? <span>{(size * 100).toFixed(0)}%</span> : null}
-                  </S.SliderInfo>
+        <>
+          <S.Card>
+            <S.Inner>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <S.Group>
+                    <S.SliderInfo>
+                      <h4>
+                        <IconSize /> Size
+                      </h4>
+                      {size ? <span>{(size * 100).toFixed(0)}%</span> : null}
+                    </S.SliderInfo>
 
-                  <SliderInput
-                    value={size}
-                    min={CONTROLLER_SCALE_MIN}
-                    max={CONTROLLER_SCALE_MAX}
-                    step={CONTROLLER_SCALE_STEP}
-                    onChange={scale}
-                  >
-                    <SliderTrack>
-                      <SliderRange />
-                      <SliderHandle />
-                      <SliderMarker value={size} />
-                    </SliderTrack>
-                  </SliderInput>
-                </S.Group>
-              </Col>
-              <Col xs={12} sm={6}>
-                <S.Group>
-                  <S.SliderInfo>
-                    <h4>
-                      <IconAngle /> Angle
-                    </h4>
-                    {angle ? <span>{angle.toFixed(0)}°</span> : null}
-                  </S.SliderInfo>
+                    <SliderInput
+                      value={size}
+                      min={CONTROLLER_SCALE_MIN}
+                      max={CONTROLLER_SCALE_MAX}
+                      step={CONTROLLER_SCALE_STEP}
+                      onChange={scale}
+                    >
+                      <SliderTrack>
+                        <SliderRange />
+                        <SliderHandle />
+                        <SliderMarker value={size} />
+                      </SliderTrack>
+                    </SliderInput>
+                  </S.Group>
+                </Col>
+                <Col xs={12} sm={6}>
+                  <S.Group>
+                    <S.SliderInfo>
+                      <h4>
+                        <IconAngle /> Angle
+                      </h4>
+                      {angle ? <span>{angle.toFixed(0)}°</span> : null}
+                    </S.SliderInfo>
 
-                  <SliderInput
-                    value={angle}
-                    min={CONTROLLER_ROTATION_MIN}
-                    max={CONTROLLER_ROTATION_MAX}
-                    onChange={rotate}
-                  >
-                    <SliderTrack>
-                      <SliderRange />
-                      <SliderHandle />
-                      <SliderMarker value={angle} />
-                    </SliderTrack>
-                  </SliderInput>
-                </S.Group>
-              </Col>
-            </Row>
-          </S.Inner>
-        </S.Card>
+                    <SliderInput
+                      value={angle}
+                      min={CONTROLLER_ROTATION_MIN}
+                      max={CONTROLLER_ROTATION_MAX}
+                      onChange={rotate}
+                    >
+                      <SliderTrack>
+                        <SliderRange />
+                        <SliderHandle />
+                        <SliderMarker value={angle} />
+                      </SliderTrack>
+                    </SliderInput>
+                  </S.Group>
+                </Col>
+              </Row>
+            </S.Inner>
+          </S.Card>
+
+          <Buttons />
+        </>
       )}
     </S.Wrapper>
   )
