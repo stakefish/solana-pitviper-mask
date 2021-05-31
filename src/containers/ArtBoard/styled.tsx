@@ -15,13 +15,8 @@ export const Image = styled.img<ImageProps>`
   transform: ${(props) => props?.angle && props?.scale && `rotate(${props.angle}deg) scale(${props.scale})`};
 `
 
-export const Board = styled.div`
-  border-radius: ${rem(16)};
-  overflow: hidden;
-  user-select: none;
+export const Wrapper = styled.div`
   position: relative;
-  width: 100%;
-  background-color: ${(props) => props.theme.colors.background};
 
   ${Button} {
     position: absolute;
@@ -35,6 +30,15 @@ export const Board = styled.div`
       height: 33px;
     }
   }
+`
+
+export const Board = styled.div`
+  border-radius: ${rem(16)};
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  width: 100%;
+  background-color: ${(props) => props.theme.colors.background};
 
   @media all and (min-width: 1024px) {
     height: 100%;

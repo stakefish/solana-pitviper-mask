@@ -12,7 +12,7 @@ import Upload from "../ControlBoard/upload"
 import Button, { ButtonColor, ButtonSize } from "../../components/Button"
 import { IconPhoto } from "../../icons"
 
-import { Board, Image, Cover, Box } from "./styled"
+import { Board, Image, Cover, Box, Wrapper } from "./styled"
 
 const ArtBoard: React.FC = () => {
   const { artboardRef, faceRef, file, masks, scales, angles, coordinates, create, select, move } = useController()
@@ -40,38 +40,39 @@ const ArtBoard: React.FC = () => {
   }, [file, faceRef])
 
   return (
-    <Board ref={artboardRef}>
-      {masks?.map((mask, index) => (
-        <Draggable
-          key={index}
-          handle="img"
-          position={coordinates?.[index]}
-          positionOffset={positionOffset}
-          onStop={(_, point) => move(point as IPoint)}
-        >
-          <Box key={index}>
-            <Image
-              width={width}
-              height={height}
-              src={mask}
-              angle={angles[index]}
-              scale={scales[index]}
-              onClick={() => select(index)}
-            />
-          </Box>
-        </Draggable>
-      ))}
+    <Wrapper>
+      <Board ref={artboardRef}>
+        {masks?.map((mask, index) => (
+          <Draggable
+            key={index}
+            handle="img"
+            position={coordinates?.[index]}
+            positionOffset={positionOffset}
+            onStop={(_, point) => move(point as IPoint)}
+          >
+            <Box key={index}>
+              <Image
+                width={width}
+                height={height}
+                src={mask}
+                angle={angles[index]}
+                scale={scales[index]}
+                onClick={() => select(index)}
+              />
+            </Box>
+          </Draggable>
+        ))}
 
-      {file === FACE_DEFAULT ? (
-        <Draggable handle="img" positionOffset={positionOffset} onStop={(_, point) => move(point as IPoint)}>
-          <Box $default>
-            <Image width={width} height={height} src={MASK} />
-          </Box>
-        </Draggable>
-      ) : null}
+        {file === FACE_DEFAULT ? (
+          <Draggable handle="img" positionOffset={positionOffset} onStop={(_, point) => move(point as IPoint)}>
+            <Box $default>
+              <Image width={width} height={height} src={MASK} />
+            </Box>
+          </Draggable>
+        ) : null}
 
-      {file ? <Cover src={file} ref={faceRef} /> : null}
-
+        {file ? <Cover src={file} ref={faceRef} /> : null}
+      </Board>
       {file !== FACE_DEFAULT && isMobile && (
         <Upload hideHint>
           <Button $color={ButtonColor.Transparent} $size={ButtonSize.Lg}>
@@ -79,7 +80,7 @@ const ArtBoard: React.FC = () => {
           </Button>
         </Upload>
       )}
-    </Board>
+    </Wrapper>
   )
 }
 
