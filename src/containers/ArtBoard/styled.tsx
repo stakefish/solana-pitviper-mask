@@ -17,6 +17,8 @@ export const Image = styled.img<ImageProps>`
 
 export const Wrapper = styled.div`
   position: relative;
+  border-radius: ${rem(16)};
+  overflow: hidden;
 
   ${Button} {
     position: absolute;
@@ -33,7 +35,6 @@ export const Wrapper = styled.div`
 `
 
 export const Board = styled.div`
-  border-radius: ${rem(16)};
   overflow: hidden;
   user-select: none;
   position: relative;
