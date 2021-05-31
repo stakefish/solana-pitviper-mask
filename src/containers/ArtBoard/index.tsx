@@ -64,8 +64,8 @@ const ArtBoard: React.FC = () => {
 
       {file === FACE_DEFAULT ? (
         <Draggable handle="img" positionOffset={positionOffset} onStop={(_, point) => move(point as IPoint)}>
-          <Box>
-            <Image width={width} height={height} src={MASK} $default />
+          <Box $default>
+            <Image width={width} height={height} src={MASK} />
           </Box>
         </Draggable>
       ) : null}

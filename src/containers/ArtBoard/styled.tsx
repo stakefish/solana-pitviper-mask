@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { rem } from "polished"
 
 import Button from "../../components/Button"
@@ -6,21 +6,13 @@ import Button from "../../components/Button"
 interface ImageProps {
   angle?: number
   scale?: number
-  $default?: boolean
 }
 
 export const Image = styled.img<ImageProps>`
   cursor: move;
   display: block;
   user-drag: none;
-  transform: ${(props) => {
-    if (props.$default) {
-      return css``
-    }
-    if (props.angle && props.scale) {
-      return `rotate(${props.angle}deg) scale(${props.scale})`
-    }
-  }};
+  transform: ${(props) => props?.angle && props?.scale && `rotate(${props.angle}deg) scale(${props.scale})`};
 `
 
 export const Board = styled.div`
@@ -49,8 +41,14 @@ export const Board = styled.div`
   }
 `
 
-export const Box = styled.div`
+interface BoxProps {
+  $default?: boolean
+}
+
+export const Box = styled.div<BoxProps>`
   position: absolute;
+  top: ${(props) => props.$default && "30%"};
+  left: ${(props) => props.$default && "50%"};
 `
 
 export const Cover = styled.img`
