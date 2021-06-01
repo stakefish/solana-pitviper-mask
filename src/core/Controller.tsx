@@ -1,7 +1,7 @@
 import React, { MutableRefObject, ReactNode, useCallback, useRef, useState } from "react"
 import downloadjs from "downloadjs"
 import { update } from "ramda"
-import { toPng } from "html-to-image"
+import { toCanvas, toPng } from "html-to-image"
 import { IPoint } from "face-api.js"
 
 import { ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT, FACE_DEFAULT } from "../helpers/const"
@@ -84,6 +84,7 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
   const save = useCallback(async () => {
     if (faceRef?.current && artboardRef?.current) {
       try {
+        await toCanvas(artboardRef.current)
         const source = await toPng(artboardRef.current, {
           skipFonts: true,
           canvasWidth: faceRef.current.naturalWidth,
