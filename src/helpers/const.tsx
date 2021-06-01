@@ -37,4 +37,4 @@ export const APP_LINKS = [
 ]
 
 export const TWITTER_SHARING_URL =
-  "https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Ftext%3DIt%27s%20about%20to%20get%20a%20lot%20sunnier%20in%20%23solanaSZN.%20Cruise%20through%20it%20with%20your%20shades%20%F0%9F%98%8E%20%23Solana%0A%0Ahttps%3A%2F%2Fmask.solana.fish%0A"
+  "https://twitter.com/intent/tweet?text=It%27s%20about%20to%20get%20a%20lot%20sunnier%20in%20%23solanaSZN.%20Cruise%20through%20it%20with%20your%20shades%20%F0%9F%98%8E%20%23Solana%0A%0Ahttps%3A%2F%2Fmask.solana.fish%0A"
