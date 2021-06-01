@@ -42,7 +42,7 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: build
-          fqdn: https://solana.fish/
+          fqdn: https://mask.solana.fish/
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
