@@ -41,7 +41,7 @@ const ArtBoard: React.FC = () => {
 
   return (
     <Wrapper>
-      <Board ref={artboardRef} id="artboard">
+      <Board ref={artboardRef}>
         {masks?.map((mask, index) => (
           <Draggable
             key={index}
