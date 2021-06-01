@@ -85,6 +85,7 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
     if (faceRef?.current && artboardRef?.current) {
       try {
         const source = await toPng(artboardRef.current, {
+          skipFonts: true,
           canvasWidth: faceRef.current.naturalWidth,
           canvasHeight: faceRef.current.naturalHeight
         })
