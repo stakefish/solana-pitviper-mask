@@ -91,7 +91,7 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
           canvasWidth: faceRef.current.naturalWidth,
           canvasHeight: faceRef.current.naturalHeight
         })
-        downloadjs(source, "Solana Mask", "image/png")
+        downloadjs(source, "Solana Mask.png", "image/png")
       } catch (error) {
         console.error(error)
       }
