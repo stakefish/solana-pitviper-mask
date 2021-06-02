@@ -3,7 +3,15 @@ import Draggable from "react-draggable"
 import { IPoint } from "face-api.js"
 import { useMediaQuery } from "react-responsive"
 
-import { MASK, MASK_WIDTH, MASK_HEIGHT, SCALE_FACTOR, FACE_DEFAULT } from "../../helpers/const"
+import {
+  MASK,
+  MASK_WIDTH,
+  MASK_HEIGHT,
+  SCALE_FACTOR,
+  FACE_DEFAULT,
+  CONTROLLER_SCALE_DEFAULT,
+  CONTROLLER_ROTATION_DEFAULT
+} from "../../helpers/const"
 
 import { useController } from "../../helpers/hooks"
 import { detectFaceLandmarks } from "../../helpers/utils"
@@ -66,7 +74,13 @@ const ArtBoard: React.FC = () => {
         {file === FACE_DEFAULT ? (
           <Draggable handle="img" positionOffset={positionOffset} onStop={(_, point) => move(point as IPoint)}>
             <Box $default>
-              <Image width={width} height={height} src={MASK} />
+              <Image
+                width={width}
+                height={height}
+                src={MASK}
+                scale={CONTROLLER_SCALE_DEFAULT}
+                angle={CONTROLLER_ROTATION_DEFAULT}
+              />
             </Box>
           </Draggable>
         ) : null}

@@ -4,15 +4,15 @@ import { rem } from "polished"
 import Button from "../../components/Button"
 
 interface ImageProps {
-  angle?: number
-  scale?: number
+  angle: number
+  scale: number
 }
 
 export const Image = styled.img<ImageProps>`
   cursor: move;
   display: block;
   user-drag: none;
-  transform: ${(props) => props?.angle && props?.scale && `rotate(${props.angle}deg) scale(${props.scale})`};
+  transform: ${(props) => `rotate(${props.angle}deg) scale(${props.scale})`};
 `
 
 export const Wrapper = styled.div`
