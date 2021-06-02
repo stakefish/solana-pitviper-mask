@@ -57,3 +57,13 @@ export const detectFaceLandmarks = async (face: HTMLImageElement, artBoard: HTML
     rotation: CONTROLLER_ROTATION_DEFAULT
   } as const
 }
+
+export const download = (uri: string) => {
+  const element = document.createElement("a")
+
+  element.setAttribute("href", uri)
+  element.setAttribute("download", "Solana Mask.png")
+  document.body.appendChild(element)
+  element.click()
+  document.body.removeChild(element)
+}

@@ -1,10 +1,10 @@
 import React, { MutableRefObject, ReactNode, useCallback, useRef, useState } from "react"
-import downloadjs from "downloadjs"
 import { update } from "ramda"
 import { toBlob, toCanvas, toPng } from "html-to-image"
 import { IPoint } from "face-api.js"
 
 import { ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT, FACE_DEFAULT } from "../helpers/const"
+import { download } from "../helpers/utils"
 
 interface ContextType {
   file: string
@@ -91,7 +91,7 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
           canvasWidth: faceRef.current.naturalWidth,
           canvasHeight: faceRef.current.naturalHeight
         })
-        downloadjs(source, "Solana Mask.png", "image/png")
+        download(source)
       } catch (error) {
         console.error(error)
       }
