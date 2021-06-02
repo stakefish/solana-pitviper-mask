@@ -14,7 +14,12 @@ const Footer: React.FC = () => {
       <Grid as={FluidGrid} fluid>
         <Row middle="xs">
           <Col xs={12} sm={8}>
-            <S.Disclaimer>{FOOTER_COPY}</S.Disclaimer>
+            <S.Disclaimer>
+              <a href="https://stake.fish/en/solana/" target="_blank">
+                stakefish
+              </a>{" "}
+              takes privacy very seriously. {FOOTER_COPY}
+            </S.Disclaimer>
           </Col>
           <Col xs={12} sm={4}>
             <Social />
