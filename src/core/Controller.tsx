@@ -88,8 +88,13 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
         await toBlob(artboardRef.current)
         const source = await toPng(artboardRef.current, {
           skipFonts: true,
-          canvasWidth: faceRef.current.naturalWidth,
-          canvasHeight: faceRef.current.naturalHeight
+          // NOTE: using width & height instead of natural ones,
+          // because it exceeds canvas size limit and breaks uri generation
+          // on iOS devices.
+          canvasWidth: faceRef.current.width,
+          canvasHeight: faceRef.current.height
+          // canvasWidth: faceRef.current.naturalWidth,
+          // canvasHeight: faceRef.current.naturalHeight
         })
         download(source)
       } catch (error) {
