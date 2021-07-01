@@ -40,7 +40,7 @@ const theme = {
   },
   colors: {
     primary: "#ff4747",
-    secondary: "#0F0F0F",
+    secondary: "#6068ee",
     tertiary: "#3F5FBF",
     dark: "#252628",
     accent: "#fdebd1",

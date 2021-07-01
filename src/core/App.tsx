@@ -27,13 +27,13 @@ const App: React.FC = () => {
           <Section>
             <Grid as={FluidGrid} fluid>
               <Card>
-                <Row middle="md">
+                <Row center="xs" middle="md">
                   {!isMobile && (
-                    <Col xs={12} md={5}>
+                    <Col xs={12} sm={5} lg={6}>
                       <ArtBoard />
                     </Col>
                   )}
-                  <Col xs={12} md={7}>
+                  <Col xs={12} sm={7} lg={6}>
                     <Info />
                     {isMobile && <ArtBoard />}
                     <ControlBoard />

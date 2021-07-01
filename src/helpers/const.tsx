@@ -18,8 +18,11 @@ export const CONTROLLER_SCALE_STEP = 0.01
 export const MASK = "images/glasses.svg"
 export const FACE_DEFAULT = "images/initial.jpeg"
 
-export const MASK_WIDTH = 288
-export const MASK_HEIGHT = 130
+export const MASK_WIDTH = 218
+export const MASK_HEIGHT = 100
+
+export const MOBILE_MASK_WIDTH = 140
+export const MOBILE_MASK_HEIGHT = 70
 
 export const FOOTER_COPY =
   "The “Solana Pitviper Mask” app is provided for fun and convenience. We never store photos, and do not transmit any data besides an anonymous identifier containing no personal information. We have also made the source code available in the event you would like to review it."

@@ -62,6 +62,6 @@ export const List = styled.div`
   justify-content: center;
 
   svg {
-    height: ${rem(24)};
+    height: 24px;
   }
 `
