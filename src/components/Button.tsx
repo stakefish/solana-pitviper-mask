@@ -61,7 +61,7 @@ const Button = styled.button<ButtonProps>`
       color: ${props.theme.colors.white};
 
       &:hover {
-        background-color: #ff4747bf;
+        background-color: ${props.theme.colors.secondary};
       }
     `}
 
@@ -71,9 +71,12 @@ const Button = styled.button<ButtonProps>`
       background-color: transparent;
       color: ${props.theme.colors.gray};
       box-shadow: inset 0 0 0 ${rem(2)} ${props.theme.colors.gray};
+      transition: all ${(props) => props.theme.transition.base};
 
       &:hover {
-        background-color: #e5e5e5;
+        background-color: transparent;
+        box-shadow: inset 0 0 0 ${rem(2)} #777b84;
+        color: #777b84;
       }
     `}
 

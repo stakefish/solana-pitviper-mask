@@ -43,7 +43,7 @@ export const Links = styled.div`
     }
 
     &:hover {
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.secondary};
     }
   }
 
@@ -56,7 +56,8 @@ export const Title = styled.h1`
   margin-bottom: ${rem(20)};
 
   @media all and (max-width: 767px) {
-    margin-bottom: 22px;
+    margin: 0 auto 22px;
+    max-width: 200px;
   }
 `
 
@@ -71,7 +72,11 @@ export const Lead = styled.div`
 
   @media all and (max-width: 767px) {
     font-size: 13px;
-    line-height: 1.23;
+
+    p {
+      font-size: 13px;
+      line-height: 1.23;
+    }
   }
 
   @media all and (max-width: 480px) {

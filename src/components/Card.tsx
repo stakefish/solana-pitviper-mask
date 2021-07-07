@@ -16,16 +16,17 @@ const Card = styled.div`
     height: 100%;
 
     > ${Row} {
-      height: 100%;
-    }
-
-    > ${Row} {
       margin-left: ${rem(-24)};
       margin-right: ${rem(-24)};
+      height: 100%;
 
       > ${Col} {
         padding-left: ${rem(24)};
         padding-right: ${rem(24)};
+
+        &:first-child {
+          height: 100%;
+        }
       }
     }
   }

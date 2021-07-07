@@ -7,6 +7,8 @@ import {
   MASK,
   MASK_WIDTH,
   MASK_HEIGHT,
+  MOBILE_MASK_WIDTH,
+  MOBILE_MASK_HEIGHT,
   SCALE_FACTOR,
   FACE_DEFAULT,
   CONTROLLER_SCALE_DEFAULT,
@@ -33,8 +35,8 @@ const ArtBoard: React.FC = () => {
     }
   }, [file, faceRef, artboardRef])
 
-  const width = MASK_WIDTH
-  const height = MASK_HEIGHT
+  const width = isMobile ? MOBILE_MASK_WIDTH : MASK_WIDTH
+  const height = isMobile ? MOBILE_MASK_HEIGHT : MASK_HEIGHT
 
   const positionOffset = {
     x: -width / SCALE_FACTOR,

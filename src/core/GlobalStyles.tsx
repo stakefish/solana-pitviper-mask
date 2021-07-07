@@ -65,12 +65,16 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: ${rem(10)};
     font-size: ${(props) => rem(props.theme.fontSize.h1)};
     font-size: 3vw;
-    color:  ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
     font-family: ${(props) => props.theme.font.headings};
+    font-weight: normal;
+    letter-spacing: normal;
 
     @media all and (max-width: 767px) {
       font-size: 28px;
       margin-bottom: 22px;
+      line-height: 1.14;
+      letter-spacing: -1px;
     }
 
     @media all and (min-width: 2600px) {

@@ -1,13 +1,13 @@
 import React from "react"
 
-import { APP_TITLE, APP_DESCRIPTION, APP_LINKS, APP_SUBTITLE } from "../../helpers/const"
+import { APP_DESCRIPTION, APP_LINKS, APP_SUBTITLE } from "../../helpers/const"
 
 import * as S from "./styled"
 
 const Info = () => {
   return (
     <S.Wrapper>
-      <S.Title>{APP_TITLE}</S.Title>
+      <S.Title>Solana Pitviper&nbsp;Mask</S.Title>
       <S.Lead>
         <p>
           {APP_SUBTITLE} {APP_DESCRIPTION}

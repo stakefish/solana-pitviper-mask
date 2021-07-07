@@ -43,6 +43,12 @@ export const UploadWrapper = styled.div`
     min-width: ${rem(205)};
   }
 
+  &:hover {
+    ${Button} {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
+  }
+
   @media all and (min-width: 1024px) {
     input {
       display: block !important;
@@ -99,6 +105,15 @@ export const Card = styled.div`
 
   [data-reach-slider-track] {
     background-color: ${(props) => rgba(props.theme.colors.gray, 0.28)};
+    user-select: none;
+
+    &:active,
+    &:hover {
+      [data-reach-slider-range],
+      [data-reach-slider-handle] {
+        background-color: ${(props) => props.theme.colors.secondary};
+      }
+    }
   }
 
   [data-reach-slider-handle] {
@@ -108,18 +123,26 @@ export const Card = styled.div`
     border: 0;
     box-shadow: 0 0 0 ${rem(4)} ${(props) => props.theme.colors.white};
     background-color: ${(props) => props.theme.colors.primary};
-    transition: box-shadow ${(props) => props.theme.transition.base};
+    transition: box-shadow ${(props) => props.theme.transition.base},
+      background-color ${(props) => props.theme.transition.base};
     cursor: pointer;
     z-index: 10;
 
     &:hover,
     &:active {
+      background-color: ${(props) => props.theme.colors.secondary};
       box-shadow: 0 0 0 ${rem(5)} ${(props) => props.theme.colors.white};
     }
   }
 
   [data-reach-slider-range] {
     background-color: ${(props) => rgba(props.theme.colors.primary, 1)};
+    transition: background-color ${(props) => props.theme.transition.base};
+
+    &:hover,
+    &:active {
+      background-color: ${(props) => props.theme.colors.secondary};
+    }
   }
 
   @media all and (max-width: 767px) {
