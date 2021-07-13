@@ -22,17 +22,17 @@ You may also use <a href="https://github.com/stakefish/stanley-ipkiss">this temp
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/vince19972">
-            <img src="https://avatars.githubusercontent.com/u/14227221?v=4" width="100;" alt="vince19972"/>
-            <br />
-            <sub><b>Vince MingPu Shao</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/apple-juice">
             <img src="https://avatars.githubusercontent.com/u/2690724?v=4" width="100;" alt="apple-juice"/>
             <br />
             <sub><b>Yuliya</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/vince19972">
+            <img src="https://avatars.githubusercontent.com/u/14227221?v=4" width="100;" alt="vince19972"/>
+            <br />
+            <sub><b>Vince MingPu Shao</b></sub>
         </a>
     </td></tr>
 </table>
