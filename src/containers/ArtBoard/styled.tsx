@@ -35,6 +35,9 @@ export const Wrapper = styled.div`
 
   @media all and (min-width: 1024px) {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `
 
@@ -42,9 +45,10 @@ export const Board = styled.div`
   overflow: hidden;
   user-select: none;
   position: relative;
+  border-radius: ${rem(16)};
   width: 100%;
 
-  @media all and (min-width: 1440px) {
+  /* @media all and (min-width: 1440px) {
     position: absolute;
     width: auto;
     left: 50%;
@@ -52,7 +56,7 @@ export const Board = styled.div`
     width: 100%;
     height: auto;
     transform: translate(-50%, -50%);
-  }
+  } */
 `
 
 interface BoxProps {
@@ -70,7 +74,6 @@ export const Cover = styled.img`
   width: 100%;
   display: block;
   user-drag: none;
-  border-radius: ${rem(16)};
 
   @media all and (min-width: 1440px) {
     top: 0;

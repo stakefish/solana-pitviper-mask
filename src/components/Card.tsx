@@ -14,6 +14,7 @@ const Card = styled.div`
 
   @media all and (min-width: 992px) {
     height: 100%;
+    max-height: calc(100vh - 12rem);
 
     > ${Row} {
       margin-left: ${rem(-24)};
