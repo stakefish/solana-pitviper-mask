@@ -3,7 +3,8 @@ import { update } from "ramda"
 import { toBlob, toCanvas, toPng } from "html-to-image"
 import { IPoint } from "face-api.js"
 
-import { ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT, FACE_DEFAULT } from "../helpers/const"
+import { MASK_EXPORT_WIDTH, ACTIVE_MASK_DEFAULT, CONTROLLER_SCALE_DEFAULT, FACE_DEFAULT } from "../helpers/const"
+
 import { download } from "../helpers/utils"
 
 interface ContextType {
@@ -83,18 +84,15 @@ export const ControllerProvider: React.FC<Props> = ({ children }: Props) => {
 
   const save = useCallback(async () => {
     if (faceRef?.current && artboardRef?.current) {
+      const ratio = MASK_EXPORT_WIDTH / faceRef.current.width
+
       try {
         await toCanvas(artboardRef.current)
         await toBlob(artboardRef.current)
         const source = await toPng(artboardRef.current, {
           skipFonts: true,
-          // NOTE: using width & height instead of natural ones,
-          // because it exceeds canvas size limit and breaks uri generation
-          // on iOS devices.
-          canvasWidth: faceRef.current.width,
-          canvasHeight: faceRef.current.height
-          // canvasWidth: faceRef.current.naturalWidth,
-          // canvasHeight: faceRef.current.naturalHeight
+          canvasWidth: MASK_EXPORT_WIDTH,
+          canvasHeight: faceRef.current.height * ratio
         })
         download(source)
       } catch (error) {

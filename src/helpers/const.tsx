@@ -31,6 +31,8 @@ export const APP_TITLE = "Solana Pitviper Mask"
 export const APP_SUBTITLE = "SolanaSZN is starting. Get your own SolanaSZN shades here!"
 export const APP_DESCRIPTION = "Upload your photo, choose your shades, and download or share with the Twitter button!"
 
+export const MASK_EXPORT_WIDTH = 640
+
 export const APP_LINKS = [
   {
     href: "https://solana.com/",
