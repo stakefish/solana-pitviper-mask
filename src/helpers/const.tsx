@@ -33,6 +33,9 @@ export const APP_DESCRIPTION = "Upload your photo, choose your shades, and downl
 
 export const MASK_EXPORT_WIDTH = 640
 
+export const TWITTER_SHARING_URL =
+  "https://twitter.com/intent/tweet?text=It%27s%20about%20to%20get%20a%20lot%20sunnier%20in%20%23solanaSZN.%20Cruise%20through%20it%20with%20your%20shades%20%F0%9F%98%8E%20%23Solana%0A%0Ahttps%3A%2F%2Fmask.solana.fish%0A"
+
 export const APP_LINKS = [
   {
     href: "https://solana.com/",
@@ -40,6 +43,3 @@ export const APP_LINKS = [
     icon: <IconInfo />
   }
 ]
-
-export const TWITTER_SHARING_URL =
-  "https://twitter.com/intent/tweet?text=It%27s%20about%20to%20get%20a%20lot%20sunnier%20in%20%23solanaSZN.%20Cruise%20through%20it%20with%20your%20shades%20%F0%9F%98%8E%20%23Solana%0A%0Ahttps%3A%2F%2Fmask.solana.fish%0A"
